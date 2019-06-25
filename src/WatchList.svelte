@@ -1,5 +1,5 @@
 <script>
-  import * as vars from "../ENV.json";
+  import { currentUser } from "./stores";
 </script>
 
 <style>
@@ -21,28 +21,28 @@
 
 <section>
   <h2>Watch List</h2>
-  {#each vars.watchList as stockData, i}
+  {#each $currentUser.stocks as currentStock, i}
     <figure>
       <div>
         <b>Company:</b>
-         {stockData.companyName}
+         {currentStock.companyName}
       </div>
       <div>
         <b>Latest Price</b>
         <span
-          class={stockData.change > 0 ? 'stock-price__increase' : 'stock-price__decrease'}>
-           {stockData.latestPrice}
+          class={currentStock.change > 0 ? 'stock-price__increase' : 'stock-price__decrease'}>
+           {currentStock.latestPrice}
         </span>
       </div>
       <div>
         <b>Price Change:</b>
         <span
           span
-          class={stockData.change > 0 ? 'stock-price__increase' : 'stock-price__decrease'}>
-           {stockData.change}
+          class={currentStock.change > 0 ? 'stock-price__increase' : 'stock-price__decrease'}>
+           {currentStock.change}
         </span>
       </div>
-      {#if i < vars.watchList.length - 1}
+      {#if i < $currentUser.stocks.length - 1}
         <hr />
       {:else}
         <span />

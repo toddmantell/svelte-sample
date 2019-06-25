@@ -13,8 +13,6 @@
     handleInput
   };
 
-  let currentUser = getUser();
-
   function handleInput(event) {
     const { value } = event.target;
     props.tickerSymbol = value && value.toUpperCase();
@@ -33,12 +31,6 @@
     } catch (error) {
       props.stockData = error;
     }
-  }
-
-  function getUser() {
-    const user = { name: "Todd", stocks: vars.watchList };
-    const currentUser = writable(user);
-    return user;
   }
 </script>
 
