@@ -3,11 +3,8 @@
 </script>
 
 <style>
-  section {
-  }
-
-  figure {
-    width: 30%;
+  h2 {
+    justify-content: center;
   }
 
   .stock-price__increase {
@@ -22,7 +19,7 @@
 <section>
   <h2>Watch List</h2>
   {#each $currentUser.stocks as currentStock, i}
-    <figure>
+    <div>
       <div>
         <b>Company:</b>
          {currentStock.companyName}
@@ -47,6 +44,6 @@
       {:else}
         <span />
       {/if}
-    </figure>
+    </div>
   {/each}
 </section>

@@ -11,10 +11,15 @@
       )
     ) {
       currentUser.update(cUser => {
-        return { ...cUser, stocks: [...cUser.stocks, stockData] };
+        return { ...cUser, stocks: [stockData, ...cUser.stocks] };
       });
-      console.log("current user updated?", $currentUser);
-    } else alert("Unable to add stock to Watch List because it already exists");
+      alert(`${stockData.companyName} added to Watch List`);
+    } else
+      alert(
+        `Unable to add ${
+          stockData.companyName
+        } to Watch List because it already exists`
+      );
   }
 </script>
 

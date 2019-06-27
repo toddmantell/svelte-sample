@@ -26,7 +26,6 @@
           vars.API_KEY
         }`
       );
-      console.log("response", response.data);
       props.stockData = response.data;
     } catch (error) {
       props.stockData = error;
@@ -40,10 +39,16 @@
     display: flex;
     justify-content: center;
   }
+
+  section {
+    justify-content: flex-start;
+  }
 </style>
 
 <main>
-  <h1>Stock Quotes For {user.name}</h1>
-  <LookupForm {...props} />
-  <WatchList />
+  <section>
+    <h1>Stock Quotes For {user.name}</h1>
+    <LookupForm {...props} />
+    <WatchList />
+  </section>
 </main>
